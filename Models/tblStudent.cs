@@ -8,7 +8,7 @@ namespace SRS.Models
 {
     public class tblStudent
     {
-         [Display(Name = "Student ID")]
+        [Display(Name = "Student ID")]
         public int c_studentid { get; set; }
 
         [Display(Name = "Student Name:")]
