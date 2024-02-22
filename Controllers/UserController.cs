@@ -11,12 +11,12 @@ namespace SRS.Controllers
     [Route("[controller]")]
     public class UserController : Controller
     {
-       private readonly UserHelper _uh;
+       private readonly UserRepository _uh;
         private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public UserController(UserHelper userHelper, IHttpContextAccessor httpContextAccessor)
+        public UserController(UserRepository userRepository, IHttpContextAccessor httpContextAccessor)
         {
-            _uh = userHelper;
+            _uh = userRepository;
             _httpContextAccessor = httpContextAccessor;
         }
 
