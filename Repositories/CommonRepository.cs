@@ -4,7 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Npgsql;
 
-namespace WebAPI.Repositories
+
+namespace SRS.Repositories
+
 {
     public class CommonRepository
     {
@@ -18,7 +20,8 @@ namespace WebAPI.Repositories
             .Build();
 
 
-            conn = new NpgsqlConnection(myConfig.GetConnectionString("DefaultConnection"));
+            conn = new NpgsqlConnection(myConfig.GetConnectionString("pgconn"));
+
         }
     }
 }

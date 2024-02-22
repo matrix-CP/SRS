@@ -3,11 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
-<<<<<<< HEAD
+
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SRS", "SRS.csproj", "{CBEA766C-DDF1-4C55-97FD-A0DE50AAC9F8}"
-=======
+
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SRS", "SRS.csproj", "{951002F4-1339-4F30-AB1E-31B377BC6442}"
->>>>>>> 67d3f4b8f37185f538877cc206405690ab12fafe
+
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SRS", "SRS.csproj", "{396046A7-C2CA-44A0-BDBF-6E80B5ECE1AF}"
+
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SRS", "SRS.csproj", "{CBEA766C-DDF1-4C55-97FD-A0DE50AAC9F8}"
+
+
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,26 +20,30 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-<<<<<<< HEAD
+
+
 		{CBEA766C-DDF1-4C55-97FD-A0DE50AAC9F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CBEA766C-DDF1-4C55-97FD-A0DE50AAC9F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBEA766C-DDF1-4C55-97FD-A0DE50AAC9F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBEA766C-DDF1-4C55-97FD-A0DE50AAC9F8}.Release|Any CPU.Build.0 = Release|Any CPU
-=======
+
 		{951002F4-1339-4F30-AB1E-31B377BC6442}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{951002F4-1339-4F30-AB1E-31B377BC6442}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{951002F4-1339-4F30-AB1E-31B377BC6442}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{951002F4-1339-4F30-AB1E-31B377BC6442}.Release|Any CPU.Build.0 = Release|Any CPU
->>>>>>> 67d3f4b8f37185f538877cc206405690ab12fafe
+
+
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-<<<<<<< HEAD
-		SolutionGuid = {55D13BDD-BBD9-4436-A2B3-F9198EBCA826}
-=======
+
 		SolutionGuid = {4108B1D0-8E79-4335-B393-9D25C05EBD44}
->>>>>>> 67d3f4b8f37185f538877cc206405690ab12fafe
+
+		SolutionGuid = {41BA89F9-1A7B-4429-86D7-59C70662ED7E}
+
+		SolutionGuid = {55D13BDD-BBD9-4436-A2B3-F9198EBCA826}
+
 	EndGlobalSection
 EndGlobal
