@@ -5,12 +5,16 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using SRS.Models;
 
 namespace SRS.Controllers
 {
     [Route("[controller]")]
     public class StudentController : Controller
     {
+
+        private readonly StudentHelper _sh;
+        private readonly CourseHelper _ch;
         private readonly ILogger<StudentController> _logger;
 
         public StudentController(StudentHelper studentHelper, CourseHelper courseHelper)
