@@ -1,0 +1,15 @@
+@model tblUser
+
+<h2>Login</h2>
+<form asp-action="">
+    <div>
+        <label for="">Email</label>
+        <input type="text" asp-for="c_email">
+    </div>
+    <div>
+        <label for="">Password</label>
+        <input type="password" asp-for="c_password">
+    </div>
+    <input type="submit" class="btn btn-success" value="Login">
+
+</form>
