@@ -7,7 +7,11 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SRS", "SRS.csproj", "{396046A7-C2CA-44A0-BDBF-6E80B5ECE1AF}"
 =======
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SRS", "SRS.csproj", "{CBEA766C-DDF1-4C55-97FD-A0DE50AAC9F8}"
+<<<<<<< HEAD
 >>>>>>> 5f5cbf56a71065472e51125b0eb659f5aefa3893
+=======
+>>>>>>> 44d44fbc8eb490bbf103a9cb8c7ff58519499c56
+>>>>>>> 046086e797de5c54fd5ea9ac3bc6b20fcbecd8c7
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,7 +29,11 @@ Global
 		{CBEA766C-DDF1-4C55-97FD-A0DE50AAC9F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBEA766C-DDF1-4C55-97FD-A0DE50AAC9F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBEA766C-DDF1-4C55-97FD-A0DE50AAC9F8}.Release|Any CPU.Build.0 = Release|Any CPU
+<<<<<<< HEAD
 >>>>>>> 5f5cbf56a71065472e51125b0eb659f5aefa3893
+=======
+>>>>>>> 44d44fbc8eb490bbf103a9cb8c7ff58519499c56
+>>>>>>> 046086e797de5c54fd5ea9ac3bc6b20fcbecd8c7
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -35,6 +43,10 @@ Global
 		SolutionGuid = {41BA89F9-1A7B-4429-86D7-59C70662ED7E}
 =======
 		SolutionGuid = {55D13BDD-BBD9-4436-A2B3-F9198EBCA826}
+<<<<<<< HEAD
 >>>>>>> 5f5cbf56a71065472e51125b0eb659f5aefa3893
+=======
+>>>>>>> 44d44fbc8eb490bbf103a9cb8c7ff58519499c56
+>>>>>>> 046086e797de5c54fd5ea9ac3bc6b20fcbecd8c7
 	EndGlobalSection
 EndGlobal

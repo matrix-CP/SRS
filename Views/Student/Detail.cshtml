@@ -1,1 +1,31 @@
-hi nemi;
+@model tblStudent
+
+<h2>Details</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Dob</th>
+            <th>Gender</th>
+            <th>Address</th>
+            <th>Languages</th>
+            <th>Courses</th>
+            <th>Profile</th>
+            <th>Document</th>
+            <th>Mobile Number</th>
+        </tr>
+    </thead>
+    <tbody>
+        <td>@Model.c_studentid</td>
+        <td>@Model.c_name</td>
+        <td>@Model.c_birthdate</td>
+        <td>@Model.c_gender</td>
+        <td>@Model.c_address</td>
+        <td>@Model.c_language</td>
+        <td>@Model.c_course</td>
+        <td>@Model.c_profile</td>
+        <td>@Model.c_document</td>
+        <td>@Model.c_mobile</td>
+    </tbody>
+</table>
