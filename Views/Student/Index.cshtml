@@ -1,9 +1,9 @@
 @model List<tblStudent>
 <h2>Students Data</h2>
 
-<a asp-action="">Add New Student</a>
-<table>
-    <thead>
+<a class="btn btn-success" asp-action="">Add New Student</a>
+<table class="table table-striped">
+    <thead class="thead-dark">
         <tr>
             <th>Id</th>
             <th>Name</th>
@@ -32,10 +32,10 @@
                 <td>@std.c_document</td>
                 <td>@std.c_mobile</td>
                 <td>
-                    <a asp-route-id="@std.c_studentid" asp-action="">Detail</a>
-                    <a asp-route-id="@std.c_studentid" asp-action="">Edit</a>
+                    <a class="btn btn-primary" asp-route-id="@std.c_studentid" asp-action="">Detail</a>
+                    <a class="btn btn-outline-primary" asp-route-id="@std.c_studentid" asp-action="">Edit</a>
                     <form asp-action="" asp-route-id="@std.c_studentid">
-                        <input type="submit" value="delete"/>
+                        <input class="btn btn-danger" type="submit" value="delete"/>
                     </form>
                 </td>
                 
