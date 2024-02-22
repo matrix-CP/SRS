@@ -1,1 +1,45 @@
-sas
+@model List<tblStudent>
+<h2>Students Data</h2>
+
+<a asp-action="">Add New Student</a>
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Dob</th>
+            <th>Gender</th>
+            <th>Address</th>
+            <th>Languages</th>
+            <th>Courses</th>
+            <th>Profile</th>
+            <th>Document</th>
+            <th>Mobile Number</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var std in Model)
+        {
+            <tr>
+                <td>@std.c_studentid</td>
+                <td>@std.c_name</td>
+                <td>@std.c_birthdate</td>
+                <td>@std.c_gender</td>
+                <td>@std.c_address</td>
+                <td>@std.c_language</td>
+                <td>@std.c_course</td>
+                <td>@std.c_profile</td>
+                <td>@std.c_document</td>
+                <td>@std.c_mobile</td>
+                <td>
+                    <a asp-route-id="@std.c_studentid" asp-action="">Detail</a>
+                    <a asp-route-id="@std.c_studentid" asp-action="">Edit</a>
+                    <form asp-action="" asp-route-id="@std.c_studentid">
+                        <input type="submit" value="delete"/>
+                    </form>
+                </td>
+                
+            </tr>
+        }
+    </tbody>
+</table>
