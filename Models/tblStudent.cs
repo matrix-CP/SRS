@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+
 using System.ComponentModel.DataAnnotations;
+
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -31,15 +33,19 @@ namespace SRS.Models
 
         [Display(Name = "Select Language :")]
         [Required(ErrorMessage = "Language can't be blank!")]
+
         public List<string> c_language { get; set; }
+
 
 
         // public int c_courseid { get; set; }
         [Display(Name = "Course Name :")]
+
         public int c_course { get; set; }
 
         [Display(Name = "Course Name :")]
         public string c_coursename { get; set; }
+
 
         [Display(Name = "Upload Photo")]
         [Required(ErrorMessage = "Upload photo!")]
