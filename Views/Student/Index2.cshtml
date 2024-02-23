@@ -1,0 +1,432 @@
+@model IEnumerable<SRS.Models.tblStudent>
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div>
+    <h2>Books</h2>
+    <table id="bookTable" class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Dob</th>
+                <th>Gender</th>
+                <th>Address</th>
+                <th>Languages</th>
+                <th>Courses</th>
+                <th>Profile</th>
+                <th>Document</th>
+                <th>Mobile Number</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- The table data will be filled using AJAX -->
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <h2>Add Book</h2>
+    <form id="addBookForm">
+
+        <div class="form-group">
+            <label for="">Name</label>
+            <input class="form-control" type="text" id="c_name" />
+        </div>
+        <div class="form-group">
+            <label for="">Dob</label>
+            <input class="form-control" type="date" id="c_birthdate" />
+        </div>
+        <div class="form-group">
+            <label for="">Gender</label>
+            <input type="radio" name="c_gender" value="Male" /> Male
+            <input type="radio" name="c_gender" value="Female" /> Female
+            <input type="radio" name="c_gender" value="Other" /> Other
+        </div>
+        <div class="form-group">
+            <label for="">Address</label>
+            <input class="form-control" type="text" id="c_address" />
+        </div>
+        <div class="form-group">
+            <label for="">Languages</label>
+            <input name="c_language" type="checkbox" value="Hindi"><label for="">Hindi</label>
+            <input name="c_language" type="checkbox" value="English"><label for="">English</label>
+            <input name="c_language" type="checkbox" value="Gujarati"><label for="">Gujarati</label>
+
+        </div>
+        <div class="form-group">
+            <label for="">Courses</label>
+            <select class="form-control" id="c_course" name="c_course">
+                <option Value="1">AI-ML</option>
+                <option Value="2">CyberSecurity</option>
+                <option Value="3">DataScience</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="">Profile</label>
+            <input class="form-control" type="file" id="c_profile" />
+        </div>
+        <div class="form-group">
+            <label for="">Document</label>
+            <input class="form-control" type="file" id="c_document" />
+        </div>
+        <div class="form-group">
+            <label for="">Mobile Number</label>
+            <input class="form-control" type="number" id="c_mobile" />
+        </div>
+        <input class="btn btn-success" id="addBookButton" type="button" value="Add Student">
+
+
+        @* <div class="form-group">
+        <label for="booktitle">Title:</label>
+        <input type="text" class="form-control" id="booktitle" name="booktitle">
+        </div>
+        <div class="form-group">
+        <label for="author">Author:</label>
+        <input type="text" class="form-control" id="author" name="author">
+        </div>
+        <div class="form-group">
+        <label for="price">Price:</label>
+        <input type="text" class="form-control" id="price" name="price">
+        </div>
+        <div class="form-group">
+        <label for="pages">Pages:</label>
+        <input type="text" class="form-control" id="pages" name="pages">
+        </div>
+        <br />
+        <button type="button" class="btn btn-primary" id="addBookButton" onclick="Adddata()">Add Book</button>
+        <input type="button" onclick="ResetBook()" value="Reset Book.." class="btn btn-danger" /> *@
+    </form>
+</div>
+<br />
+
+<!-- Edit Book Modal -->
+<div class="modal fade" id="editBookModal" tabindex="-1" role="dialog" aria-labelledby="editBookModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editBookModalLabel">Edit Book</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="editBookForm">
+                    <input type="hidden" id="c_studentid" name="c_studentid">
+                    <div class="form-group">
+                        <label for="">Name</label>
+                        <input class="form-control" type="text" id="c_nameEdit" />
+                    </div>
+                    <div class="form-group">
+                        <label for="">Dob</label>
+                        <input class="form-control" type="date" id="c_birthdateEdit" />
+                    </div>
+                    <div class="form-group">
+                        <label for="">Gender</label>
+                        <input type="radio" name="c_genderEdit" value="Male" /> Male
+                        <input type="radio" name="c_genderEdit" value="Female" /> Female
+                        <input type="radio" name="c_genderEdit" value="Other" /> Other
+                    </div>
+                    <div class="form-group">
+                        <label for="">Address</label>
+                        <input class="form-control" type="text" id="c_addressEdit" />
+                    </div>
+                    <div class="form-group">
+                        <label for="">Languages</label>
+                        <input name="c_languageEdit" type="checkbox" value="Hindi"><label for="">Hindi</label>
+                        <input name="c_languageEdit" type="checkbox" value="English"><label for="">English</label>
+                        <input name="c_languageEdit" type="checkbox" value="Gujarati"><label for="">Gujarati</label>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="">Courses</label>
+                        <select class="form-control" id="c_courseEdit" name="c_courseEdit">
+                            <option Value="1">AI-ML</option>
+                            <option Value="2">CyberSecurity</option>
+                            <option Value="3">DataScience</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Profile</label>
+                        <input class="form-control" type="file" id="c_profileEdit" />
+                    </div>
+                    <div class="form-group">
+                        <label for="">Document</label>
+                        <input class="form-control" type="file" id="c_documentEdit" />
+                    </div>
+                    <div class="form-group">
+                        <label for="">Mobile Number</label>
+                        <input class="form-control" type="number" id="c_mobileEdit" />
+                    </div>
+
+                    @* <div class="form-group">
+                    <label for="editBookTitle">Title:</label>
+                    <input type="text" class="form-control" id="editBookTitle" name="editBookTitle">
+                    </div>
+                    <div class="form-group">
+                    <label for="editBookAuthor">Author:</label>
+                    <input type="text" class="form-control" id="editBookAuthor" name="editBookAuthor">
+                    </div>
+                    <div class="form-group">
+                    <label for="editBookPrice">Price:</label>
+                    <input type="text" class="form-control" id="editBookPrice" name="editBookPrice">
+                    </div>
+                    <div class="form-group">
+                    <label for="editBookPages">Pages:</label>
+                    <input type="text" class="form-control" id="editBookPages" name="editBookPages">
+                    </div> *@
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                    id="closeModalButton">Close</button>
+
+
+                @* <button type="button" class="btn btn-secondary" id="closeModalButton">Close</button> *@
+                <Buttton class="btn btn-success" id="editBookPages" type="button">Update Student</Buttton>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+@section Scripts {
+    <script>
+        function ResetBook() {
+            @* $('#txtid').val(0),
+                $('#booktitle').val("");
+            $('#author').val("");
+            $('#price').val("");
+            $('#pages').val(""); *@
+        }
+
+        function ResetBook1() {
+            @* $('#addBookForm')[0].reset(); *@
+        }
+        function ResetBook() {
+            @* $('#booktitle').val("");
+            $('#author').val("");
+            $('#price').val("");
+            $('#pages').val(""); *@
+        }
+
+
+
+        function loadBooks2() {
+            $.ajax({
+                url: '/AjaxBook/GetAllBooks',
+                type: 'GET',
+                dataType: 'json',
+                success: function (data) {
+                    var bookTable = $('#bookTable tbody');
+                    bookTable.empty();
+                    data.forEach(function (book) {
+                        var row = '<tr>';
+                        row += '<td>' + book.c_studentid + '</td>';
+                        row += '<td>' + book.c_name + '</td>';
+                        row += '<td>' + book.c_birthdate + '</td>';
+                        row += '<td>' + book.c_gender + '</td>';
+                        row += '<td>' + book.c_address + '</td>';
+                        row += '<td>' + book.c_language + '</td>';
+                        row += '<td>' + book.c_coursename + '</td>';
+                        row += '<td>' + book.c_profile + '</td>';
+                        row += '<td>' + book.c_document + '</td>';
+                        row += '<td>' + book.c_mobile + '</td>';
+                        row += '<td><button class="btn btn-primary edit" data-id="' + book.c_studentid + '">Edit</button>';
+                        row += '<button class="btn btn-danger delete" data-id="' + book.c_studentid + '">Delete</button></td>';
+                        row += '</tr>';
+                        bookTable.append(row);
+
+                    });
+                }
+            });
+        }
+
+        function Adddata() {
+
+            var name = $('#c_name').val();
+            var dob = $('#c_birthdate').val();
+            var address = $('#c_address').val();
+            var course = $('#c_course').val();
+            var profile = $('#c_profile').val();
+            var doc = $('#c_document').val();
+            var mobile = $('#c_mobile').val();
+
+
+
+            var newBook = {
+                c_name: name,
+                c_birthdate: dob,
+                c_gender: ,
+                c_address: address,
+                c_language:,
+                c_course: course,
+                c_profile: profile,
+                c_document: doc,
+                c_mobile: mobile,
+
+
+            };
+
+
+            $.ajax({
+                url: ' ',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(newBook),
+                success: function (data) {
+
+                    if (data) {
+                        @* ResetBook(); *@
+                        alert(data.message);
+
+                        loadBooks2();
+                    } else {
+                        console.log('Error adding book');
+                    }
+                },
+                error: function (error) {
+                    console.log('AJAX error:', error);
+                }
+            });
+        }
+
+        $(document).ready(function () {
+
+            loadBooks();
+
+            setInterval(loadBooks, 5000);
+
+            $('#bookTable').on('click', '.delete', deleteBook);
+            function deleteBook() {
+                var bookId = $(this).data('id');
+
+                var result = confirm("Are you sure for delete !");
+                if (result) {
+                    $.ajax({
+                        url: ' ',
+                        type: 'POST',
+                        data: { id: bookId },
+                        dataType: 'json',
+                        success: function (data) {
+                            alert(data.message);
+                            loadBooks();
+                        },
+                    });
+                }
+            }
+
+
+            $('#bookTable').on('click', '.edit', editBook);
+
+            function editBook() {
+                var bookId = $(this).data('id');
+                $('#c_studentid').val(bookId);
+                $.ajax({
+                    url: ' ',
+                    type: 'GET',
+                    data: { id: bookId },
+                    dataType: 'json',
+                    success: function (data) {
+                        $('#c_studentid').val(data.c_studentid);
+                        $('#c_nameEdit').val(data.c_name);
+                        $('#c_birthdateEdit').val(data.c_birthdate);
+                        //gender      c_
+                        //language
+                        $('#c_addressEdit').val(data.c_address);
+                        $('#c_courseEdit').val(data.c_course);
+                        $('#c_profileEdit').val(data.c_profile);
+                        $('#c_documentEdit').val(data.c_document);
+                        $('#c_mobileEdit').val(data.c_mobile);
+
+        @* $('#editBookId').val(data.myid1);
+                        $('#editBookTitle').val(data.booktitle);
+                        $('#editBookAuthor').val(data.author);
+                        $('#editBookPrice').val(data.price);
+                        $('#editBookPages').val(data.pages); *@
+                            },
+                });
+                $('#editBookModal').modal('show');
+            }
+
+
+            $('#updateBookButton').on('click', updateBook);
+            function updateBook() {
+                var book = {
+                    c_studentid: $('#c_studentid').val(),
+                    c_name: $('#c_nameEdit').val(),
+                    c_birthdate: $('#c_birthdateEdit').val(),
+                    //c_gender: gender
+                    //c_language:
+                    c_address: $('#c_addressEdit').val(),
+                    c_course: $('#c_courseEdit').val(),
+                    c_profile: $('#c_profileEdit').val(),
+                    c_document: $('#c_documentEdit').val(),
+                    c_mobile: $('#c_mobileEdit').val(),
+
+        @* $('#editBookId').val(data.myid1);
+                $('#editBookTitle').val(data.booktitle);
+                $('#editBookAuthor').val(data.author);
+                $('#editBookPrice').val(data.price);
+                $('#editBookPages').val(data.pages); *@
+                    };
+
+            $.ajax({
+                url: ' ',
+                type: 'POST',
+                data: JSON.stringify(book),
+                contentType: 'application/json; charset-utf-8',
+                success: function (result) {
+                    loadBooks();
+                    $('#editBookModal').modal('hide');
+                    alert(result.message);
+                },
+            });
+        }
+
+                function loadBooks() {
+                $.ajax({
+                    url: '/AjaxBook/GetAllBooks',
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function (data) {
+                        var bookTable = $('#bookTable tbody');
+                        bookTable.empty();
+                        data.forEach(function (book) {
+                            var row = '<tr>';
+                            row += '<td>' + book.c_studentid + '</td>';
+                            row += '<td>' + book.c_name + '</td>';
+                            row += '<td>' + book.c_birthdate + '</td>';
+                            row += '<td>' + book.c_gender + '</td>';
+                            row += '<td>' + book.c_address + '</td>';
+                            row += '<td>' + book.c_language + '</td>';
+                            row += '<td>' + book.c_coursename + '</td>';
+                            row += '<td>' + book.c_profile + '</td>';
+                            row += '<td>' + book.c_document + '</td>';
+                            row += '<td>' + book.c_mobile + '</td>';
+                            row += '<td><button class="btn btn-primary edit" data-id="' + book.c_studentid + '">Edit</button>';
+                            row += '<button class="btn btn-danger delete" data-id="' + book.c_studentid + '">Delete</button></td>';
+                            row += '</tr>';
+                            bookTable.append(row);
+
+
+                        });
+                    }
+                });
+            }
+            });
+
+
+    </script>
+}
