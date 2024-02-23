@@ -1,0 +1,23 @@
+@model tblUser
+
+<h2>Register</h2>
+<form asp-action="Register" method="post">
+    <div>
+        <label for="">Username</label>
+        <input type="text" asp-for="c_username">
+    </div>
+    <div>
+        <label for="">Email</label>
+        <input type="text" asp-for="c_email">
+    </div>
+    <div>
+        <label for="">Password</label>
+        <input type="password" asp-for="c_password">
+    </div>
+    <div>
+        <label for="">Confirm Password</label>
+        <input type="password" asp-for="c_cpassword">
+    </div>
+    <input type="submit" class="btn btn-success" value="Register">
+
+</form>

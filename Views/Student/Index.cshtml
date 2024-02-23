@@ -1,0 +1,46 @@
+@model List<tblStudent>
+<h2>Students Data</h2>
+
+<a class="btn btn-success" asp-action="Add">Add New Student</a>
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Dob</th>
+            <th>Gender</th>
+            <th>Address</th>
+            <th>Languages</th>
+            <th>Courses</th>
+            <th>Profile</th>
+            <th>Document</th>
+            <th>Mobile Number</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var std in Model)
+        {
+            <tr>
+                <td>@std.c_studentid</td>
+                <td>@std.c_name</td>
+                <td>@std.c_birthdate</td>
+                <td>@std.c_gender</td>
+                <td>@std.c_address</td>
+                <td>@string.Join(',',std.c_language)</td>
+                <td>@std.c_coursename</td>
+                <td>@std.c_profile</td>
+                <td>@std.c_document</td>
+                <td>@std.c_mobile</td>
+                <td>
+                    <a class="btn btn-primary" asp-route-id="@std.c_studentid" asp-action="Details">Detail</a>
+                    <a class="btn btn-outline-primary" asp-route-id="@std.c_studentid" asp-action="Edit">Edit</a>
+                    
+                    <form asp-action="Delete" asp-route-id="@std.c_studentid">
+                        <input class="btn btn-danger" type="submit" value="delete"/>
+                    </form>
+                </td>
+                
+            </tr>
+        }
+    </tbody>
+</table>
