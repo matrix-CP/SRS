@@ -6,7 +6,7 @@
 
 <div>
     <h2>Books</h2>
-    <table id="bookTable" class="table table-striped">
+    <table id="studentTable" class="table table-striped">
         <thead>
             <tr>
                 <th>Id</th>
@@ -28,37 +28,38 @@
 </div>
 
 <div>
-    <h2>Add Book</h2>
-    <form id="addBookForm">
+    <h2>Add Student</h2>
+    <form id="addStudentForm">
 
         <div class="form-group">
-            <label for="">Name</label>
-            <input class="form-control" type="text" id="c_name" />
+            <label for="c_name">Name</label>
+            <input class="form-control" type="text" id="c_name" required/>
         </div>
         <div class="form-group">
-            <label for="">Dob</label>
-            <input class="form-control" type="date" id="c_birthdate" />
+            <label for="c_birthdate">Dob</label>
+            <input class="form-control" type="date" id="c_birthdate" required/>
         </div>
         <div class="form-group">
-            <label for="">Gender</label>
+            <label for="c_gender">Gender</label>
             <input type="radio" name="c_gender" value="Male" /> Male
             <input type="radio" name="c_gender" value="Female" /> Female
             <input type="radio" name="c_gender" value="Other" /> Other
         </div>
         <div class="form-group">
-            <label for="">Address</label>
-            <input class="form-control" type="text" id="c_address" />
+            <label for="c_address">Address</label>
+            <input class="form-control" type="text" id="c_address" required/>
         </div>
         <div class="form-group">
-            <label for="">Languages</label>
-            <input name="c_language" type="checkbox" value="Hindi"><label for="">Hindi</label>
-            <input name="c_language" type="checkbox" value="English"><label for="">English</label>
-            <input name="c_language" type="checkbox" value="Gujarati"><label for="">Gujarati</label>
+            <label for="c_language">Languages</label>
+            <input name="c_language" id="Hindi" type="checkbox" value="Hindi"><label for="Hindi">Hindi</label>
+            <input name="c_language" id="English" type="checkbox" value="English"><label for="English">English</label>
+            <input name="c_language" id="Gujarati" type="checkbox" value="Gujarati"><label for="Gujarati">Gujarati</label>
 
         </div>
         <div class="form-group">
-            <label for="">Courses</label>
-            <select class="form-control" id="c_course" name="c_course">
+            <label for="c_course">Courses</label>
+            <select class="form-control" id="c_course" name="c_course" required>
+                <option value="">Select Course Name</option>
                 <option Value="1">AI-ML</option>
                 <option Value="2">CyberSecurity</option>
                 <option Value="3">DataScience</option>
@@ -66,17 +67,18 @@
         </div>
         <div class="form-group">
             <label for="">Profile</label>
-            <input class="form-control" type="file" id="c_profile" />
+            <input class="form-control" type="file" id="c_profile" required/>
         </div>
         <div class="form-group">
             <label for="">Document</label>
-            <input class="form-control" type="file" id="c_document" />
+            <input class="form-control" type="file" id="c_document" required/>
         </div>
         <div class="form-group">
             <label for="">Mobile Number</label>
-            <input class="form-control" type="number" id="c_mobile" />
+            <input class="form-control" type="number" id="c_mobile" required/>
         </div>
-        <input class="btn btn-success" id="addBookButton" type="button" value="Add Student">
+        <button type="button" class="btn btn-primary" id="addStudentButton" onclick="Adddata()">Add Student</button>
+        <input type="button" onclick="ResetStudent()" value="Reset Student.." class="btn btn-danger" />
 
 
         @* <div class="form-group">
@@ -117,11 +119,11 @@
                 <form id="editBookForm">
                     <input type="hidden" id="c_studentid" name="c_studentid">
                     <div class="form-group">
-                        <label for="">Name</label>
+                        <label for="c_nameEdit">Name</label>
                         <input class="form-control" type="text" id="c_nameEdit" />
                     </div>
                     <div class="form-group">
-                        <label for="">Dob</label>
+                        <label for="c_birthdateEdit">Dob</label>
                         <input class="form-control" type="date" id="c_birthdateEdit" />
                     </div>
                     <div class="form-group">
@@ -131,18 +133,18 @@
                         <input type="radio" name="c_genderEdit" value="Other" /> Other
                     </div>
                     <div class="form-group">
-                        <label for="">Address</label>
+                        <label for="c_addressEdit">Address</label>
                         <input class="form-control" type="text" id="c_addressEdit" />
                     </div>
                     <div class="form-group">
-                        <label for="">Languages</label>
-                        <input name="c_languageEdit" type="checkbox" value="Hindi"><label for="">Hindi</label>
-                        <input name="c_languageEdit" type="checkbox" value="English"><label for="">English</label>
-                        <input name="c_languageEdit" type="checkbox" value="Gujarati"><label for="">Gujarati</label>
+                        <label for="c_languageEdit">Languages</label>
+                        <input name="c_languageEdit" type="checkbox" id="HindiEdit" value="Hindi"><label for="Hindi">Hindi</label>
+                        <input name="c_languageEdit" type="checkbox" id="EnglishEdit" value="English"><label for="English">English</label>
+                        <input name="c_languageEdit" type="checkbox" id="GujaratiEdit" value="Gujarati"><label for="Gujarati">Gujarati</label>
 
                     </div>
                     <div class="form-group">
-                        <label for="">Courses</label>
+                        <label for="c_courseEdit">Courses</label>
                         <select class="form-control" id="c_courseEdit" name="c_courseEdit">
                             <option Value="1">AI-ML</option>
                             <option Value="2">CyberSecurity</option>
@@ -150,15 +152,15 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="">Profile</label>
+                        <label for="c_profileEdit">Profile</label>
                         <input class="form-control" type="file" id="c_profileEdit" />
                     </div>
                     <div class="form-group">
-                        <label for="">Document</label>
+                        <label for="c_documentEdit">Document</label>
                         <input class="form-control" type="file" id="c_documentEdit" />
                     </div>
                     <div class="form-group">
-                        <label for="">Mobile Number</label>
+                        <label for="c_mobileEdit">Mobile Number</label>
                         <input class="form-control" type="number" id="c_mobileEdit" />
                     </div>
 
@@ -186,7 +188,7 @@
 
 
                 @* <button type="button" class="btn btn-secondary" id="closeModalButton">Close</button> *@
-                <Buttton class="btn btn-success" id="editBookPages" type="button">Update Student</Buttton>
+                <Buttton class="btn btn-success" id="editStudent" type="button">Update Student</Buttton>
             </div>
         </div>
     </div>
@@ -203,50 +205,39 @@
 
 @section Scripts {
     <script>
-        function ResetBook() {
-            @* $('#txtid').val(0),
-                $('#booktitle').val("");
-            $('#author').val("");
-            $('#price').val("");
-            $('#pages').val(""); *@
+       
+
+        function ResetStudent() {
+            $('#addStudentForm')[0].reset();
         }
-
-        function ResetBook1() {
-            @* $('#addBookForm')[0].reset(); *@
-        }
-        function ResetBook() {
-            @* $('#booktitle').val("");
-            $('#author').val("");
-            $('#price').val("");
-            $('#pages').val(""); *@
-        }
+        
 
 
 
-        function loadBooks2() {
+        function loadStudent2() {
             $.ajax({
-                url: '/AjaxBook/GetAllBooks',
+                url: '/Student/GetAllStudents',
                 type: 'GET',
                 dataType: 'json',
                 success: function (data) {
-                    var bookTable = $('#bookTable tbody');
-                    bookTable.empty();
-                    data.forEach(function (book) {
+                    var studentTable = $('#studentTable tbody');
+                    studentTable.empty();
+                    data.forEach(function (student) {
                         var row = '<tr>';
-                        row += '<td>' + book.c_studentid + '</td>';
-                        row += '<td>' + book.c_name + '</td>';
-                        row += '<td>' + book.c_birthdate + '</td>';
-                        row += '<td>' + book.c_gender + '</td>';
-                        row += '<td>' + book.c_address + '</td>';
-                        row += '<td>' + book.c_language + '</td>';
-                        row += '<td>' + book.c_coursename + '</td>';
-                        row += '<td>' + book.c_profile + '</td>';
-                        row += '<td>' + book.c_document + '</td>';
-                        row += '<td>' + book.c_mobile + '</td>';
-                        row += '<td><button class="btn btn-primary edit" data-id="' + book.c_studentid + '">Edit</button>';
-                        row += '<button class="btn btn-danger delete" data-id="' + book.c_studentid + '">Delete</button></td>';
+                        row += '<td>' + student.c_studentid + '</td>';
+                        row += '<td>' + student.c_name + '</td>';
+                        row += '<td>' + student.c_birthdate + '</td>';
+                        row += '<td>' + student.c_gender + '</td>';
+                        row += '<td>' + student.c_address + '</td>';
+                        row += '<td>' + student.c_language + '</td>';
+                        row += '<td>' + student.c_coursename + '</td>';
+                        row += '<td>' + student.c_profile + '</td>';
+                        row += '<td>' + student.c_document + '</td>';
+                        row += '<td>' + student.c_mobile + '</td>';
+                        row += '<td><button class="btn btn-primary edit" data-id="' + student.c_studentid + '">Edit</button>';
+                        row += '<button class="btn btn-danger delete" data-id="' + student.c_studentid + '">Delete</button></td>';
                         row += '</tr>';
-                        bookTable.append(row);
+                        studentTable.append(row);
 
                     });
                 }
@@ -254,11 +245,47 @@
         }
 
         function Adddata() {
-
+            var allFieldsFilled = true;
+                $('#addStudentForm input[required]').each(function () {
+                    debugger
+                    if ($(this).val() == '') {
+                        allFieldsFilled=false;
+                    }
+                });
+                if(!allFieldsFilled)
+                {
+                    debugger
+                    alert("Fill All The Fields!");
+                    return;
+                }
+            var values = $('input[name="c_language"]:checked').map(function() {
+                return $(this).val();
+            }).get();
+            if(values.length==0){
+                alert("Please Select Language");
+                return;
+            }
+            if($('#c_course').val()==""){
+                alert("Please Select Course!");
+                return;
+            }
+            if(!$("#Hindi").prop("checked") && !$("#English").prop("checked") && !$("#Gujarati").prop("checked")){
+                alert("Please Select Gender");
+                return;
+            }
+            var language = new Array();
+            if ($("#Hindi").prop("checked"))
+                language.push("Hindi")
+            if ($("#Gujarati").prop("checked"))
+                language.push("Gujarati")
+            if ($("#English").prop("checked"))
+                language.push("English")
+            var gender = $('input[name="c_gender"]:checked').val();
             var name = $('#c_name').val();
             var dob = $('#c_birthdate').val();
             var address = $('#c_address').val();
             var course = $('#c_course').val();
+
             var profile = $('#c_profile').val();
             var doc = $('#c_document').val();
             var mobile = $('#c_mobile').val();
@@ -268,9 +295,9 @@
             var newBook = {
                 c_name: name,
                 c_birthdate: dob,
-                c_gender: ,
+                c_gender: gender,
                 c_address: address,
-                c_language:,
+                c_language:language,
                 c_course: course,
                 c_profile: profile,
                 c_document: doc,
@@ -281,17 +308,24 @@
 
 
             $.ajax({
-                url: ' ',
+                url: './AjaxAdd',
                 type: 'POST',
                 contentType: 'application/json',
                 data: JSON.stringify(newBook),
                 success: function (data) {
 
                     if (data) {
+                        if(data.status){
+                            alert(data.message);
+                        }
+                        else{
+                            alert("Some error Occured!");
+                        }
                         @* ResetBook(); *@
-                        alert(data.message);
+                        
 
-                        loadBooks2();
+                        loadStudent2();
+                        ResetStudent();
                     } else {
                         console.log('Error adding book');
                     }
@@ -304,50 +338,56 @@
 
         $(document).ready(function () {
 
-            loadBooks();
+            loadStudents();
 
-            setInterval(loadBooks, 5000);
 
-            $('#bookTable').on('click', '.delete', deleteBook);
-            function deleteBook() {
-                var bookId = $(this).data('id');
+            $('#studentTable').on('click', '.delete', deleteStudent);
+            function deleteStudent() {
+                var studentId = $(this).data('id');
 
                 var result = confirm("Are you sure for delete !");
                 if (result) {
                     $.ajax({
-                        url: ' ',
+                        url: './AjaxDelete',
                         type: 'POST',
-                        data: { id: bookId },
+                        data: { id: studentId },
                         dataType: 'json',
                         success: function (data) {
-                            alert(data.message);
-                            loadBooks();
+                            if(data.status){
+                                alert(data.message);
+                            }
+                            else{
+                                alert("Some Error While Deleting!");
+                            }
+                            loadStudent2();
                         },
                     });
                 }
             }
 
 
-            $('#bookTable').on('click', '.edit', editBook);
+            $('#studentTable').on('click', '.edit', editStudent);
 
-            function editBook() {
-                var bookId = $(this).data('id');
-                $('#c_studentid').val(bookId);
+            function editStudent() {
+                var studentId = $(this).data('id');
+                $('#c_studentid').val(studentId);
                 $.ajax({
-                    url: ' ',
+                    url: './AjaxDetails',
                     type: 'GET',
-                    data: { id: bookId },
+                    data: { id: studentId },
                     dataType: 'json',
                     success: function (data) {
                         $('#c_studentid').val(data.c_studentid);
                         $('#c_nameEdit').val(data.c_name);
-                        $('#c_birthdateEdit').val(data.c_birthdate);
-                        //gender      c_
-                        //language
+                        $("#c_birthdateEdit").val(data.c_birthdate.split('T')[0]);
+                        $("input[name='c_genderEdit'][value='" + data.c_gender + "']").prop("checked", true);
+                        $.each(data.c_language, function(index, value) {
+                            $("input[name='c_languageEdit'][value='" + value + "']").prop("checked", true);
+                        }),
                         $('#c_addressEdit').val(data.c_address);
                         $('#c_courseEdit').val(data.c_course);
-                        $('#c_profileEdit').val(data.c_profile);
-                        $('#c_documentEdit').val(data.c_document);
+                        @* $('#c_profileEdit').val(data.c_profile); *@
+                        @* $('#c_documentEdit').val(data.c_document); *@
                         $('#c_mobileEdit').val(data.c_mobile);
 
         @* $('#editBookId').val(data.myid1);
@@ -355,20 +395,28 @@
                         $('#editBookAuthor').val(data.author);
                         $('#editBookPrice').val(data.price);
                         $('#editBookPages').val(data.pages); *@
-                            },
+                    },
                 });
                 $('#editBookModal').modal('show');
             }
 
 
-            $('#updateBookButton').on('click', updateBook);
-            function updateBook() {
-                var book = {
+            $('#editStudent').on('click', updateStudent);
+            function updateStudent() {
+                var language = new Array();
+                if ($("#HindiEdit").prop("checked"))
+                    language.push("Hindi")
+                if ($("#GujaratiEdit").prop("checked"))
+                    language.push("Gujarati")
+                if ($("#EnglishEdit").prop("checked"))
+                    language.push("English")
+                var gender = $('input[name="c_genderEdit"]:checked').val();
+                var student = {
                     c_studentid: $('#c_studentid').val(),
                     c_name: $('#c_nameEdit').val(),
                     c_birthdate: $('#c_birthdateEdit').val(),
-                    //c_gender: gender
-                    //c_language:
+                    c_gender: gender,
+                    c_language:language,
                     c_address: $('#c_addressEdit').val(),
                     c_course: $('#c_courseEdit').val(),
                     c_profile: $('#c_profileEdit').val(),
@@ -383,49 +431,54 @@
                     };
 
             $.ajax({
-                url: ' ',
+                url: './AjaxEdit',
                 type: 'POST',
-                data: JSON.stringify(book),
+                data: JSON.stringify(student),
                 contentType: 'application/json; charset-utf-8',
                 success: function (result) {
-                    loadBooks();
-                    $('#editBookModal').modal('hide');
-                    alert(result.message);
+                    if(result.status){
+                        $('#editBookModal').modal('hide');
+                        alert(result.message);
+                    }
+                    else{
+                        alert("Some error Occured!");
+                    }
+                    loadStudent2();
                 },
             });
         }
 
-                function loadBooks() {
+                function loadStudents() {
                 $.ajax({
-                    url: '/AjaxBook/GetAllBooks',
+                    url: '/Student/GetAllStudents',
                     type: 'GET',
                     dataType: 'json',
                     success: function (data) {
-                        var bookTable = $('#bookTable tbody');
-                        bookTable.empty();
-                        data.forEach(function (book) {
+                        var studentTable = $('#studentTable tbody');
+                        studentTable.empty();
+                        data.forEach(function (student) {
                             var row = '<tr>';
-                            row += '<td>' + book.c_studentid + '</td>';
-                            row += '<td>' + book.c_name + '</td>';
-                            row += '<td>' + book.c_birthdate + '</td>';
-                            row += '<td>' + book.c_gender + '</td>';
-                            row += '<td>' + book.c_address + '</td>';
-                            row += '<td>' + book.c_language + '</td>';
-                            row += '<td>' + book.c_coursename + '</td>';
-                            row += '<td>' + book.c_profile + '</td>';
-                            row += '<td>' + book.c_document + '</td>';
-                            row += '<td>' + book.c_mobile + '</td>';
-                            row += '<td><button class="btn btn-primary edit" data-id="' + book.c_studentid + '">Edit</button>';
-                            row += '<button class="btn btn-danger delete" data-id="' + book.c_studentid + '">Delete</button></td>';
+                            row += '<td>' + student.c_studentid + '</td>';
+                            row += '<td>' + student.c_name + '</td>';
+                            row += '<td>' + student.c_birthdate + '</td>';
+                            row += '<td>' + student.c_gender + '</td>';
+                            row += '<td>' + student.c_address + '</td>';
+                            row += '<td>' + student.c_language + '</td>';
+                            row += '<td>' + student.c_coursename + '</td>';
+                            row += '<td>' + student.c_profile + '</td>';
+                            row += '<td>' + student.c_document + '</td>';
+                            row += '<td>' + student.c_mobile + '</td>';
+                            row += '<td><button class="btn btn-primary edit" data-id="' + student.c_studentid + '">Edit</button>';
+                            row += '<button class="btn btn-danger delete" data-id="' + student.c_studentid + '">Delete</button></td>';
                             row += '</tr>';
-                            bookTable.append(row);
+                            studentTable.append(row);
 
 
                         });
                     }
                 });
             }
-            });
+        });
 
 
     </script>

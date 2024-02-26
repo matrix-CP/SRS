@@ -114,6 +114,7 @@ namespace SRS.Repositories
                             student.c_language = reader["c_language"].ToString().Split(',').ToList();
                             // student.Course = Convert.ToInt32(reader["c_course"]);
                             student.c_coursename = reader["c_coursename"].ToString();
+                            student.c_course=Convert.ToInt32(reader["c_course"]);
                             student.c_profile = reader["c_profile"].ToString();
                             student.c_document = reader["c_document"].ToString();
                             student.c_mobile = Convert.ToInt64(reader["c_mobile"].ToString());

@@ -118,5 +118,56 @@ namespace SRS.Controllers
             
             return RedirectToAction("Index","Student");
         }
+
+        public IActionResult Index2()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AjaxAdd([FromBody]tblStudent student)
+        {
+            Console.WriteLine("Language is: "+student.c_language);
+            _sh.InsertStudent(student);
+            return Json(new{message="Student Added Successfully!",status=true});
+        }
+
+        public IActionResult AjaxDetails(int id)
+        {
+            // if(HttpContext.Session.GetString("username") == null)
+            // {
+            //     return RedirectToAction("Login", "User");
+            // }
+            tblStudent student = _sh.FetchStudentDetails(id);
+            return Json(student);
+        }
+        [HttpPost]
+        public IActionResult AjaxEdit([FromBody]tblStudent student)
+        {
+            // if(HttpContext.Session.GetString("username") == null)
+            // {
+            //     return RedirectToAction("Login", "User");
+            // }
+            _sh.UpdateExistingStudent(student);
+            return Json(new{message="Updated Sucessfully!",status=true});
+        }
+
+        public IActionResult AjaxDelete(int id)
+        {
+            // if (HttpContext.Session.GetString("username") == null)
+            // {
+            //     return RedirectToAction("Login", "User");
+            // }
+
+            
+            _sh.DeleteStudentDetails(id);
+            
+            return Json(new{message="Deleted Successully!",status=true});
+        }
+        public IActionResult GetAllStudents()
+        {
+            List<tblStudent> students=_sh.FetchAllStudents();
+            return Json(students);
+        }
     }
 }
